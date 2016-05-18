@@ -1,0 +1,11 @@
+input {
+    margin-bottom: 5px;
+}
+
+.btn-primary {
+    background-color: cornflowerblue;
+}
+
+.btn {
+    border-radius: 18px;
+}
