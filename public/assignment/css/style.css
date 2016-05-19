@@ -9,3 +9,11 @@ input {
 .btn {
     border-radius: 18px;
 }
+
+body {
+    padding-top: 60px;
+}
+
+p.navbar-text.pull-right {
+    margin-right: 15px;
+}
