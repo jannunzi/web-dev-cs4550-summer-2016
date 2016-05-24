@@ -1,13 +1,18 @@
 <div class="container">
+
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
     <h2>Login</h2>
-    <input class="form-control"
+    <input ng-model="username" class="form-control"
            placeholder="username"
            type="text"/>
-    <input class="form-control"
+    <input ng-model="password" class="form-control"
            placeholder="password"
            type="password">
-    <a class="btn btn-primary btn-block"
-       href="#/profile">Login</a>
+    <a ng-click="model.login(username, password)"
+       class="btn btn-primary btn-block">Login</a>
     <a class="btn btn-success btn-block"
        href="#/register">Register</a>
 </div>
