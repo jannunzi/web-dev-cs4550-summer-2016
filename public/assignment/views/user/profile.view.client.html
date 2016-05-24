@@ -16,12 +16,12 @@
 
 <div class="container">
 
-    <div class="alert alert-success">
-        Successfully updated your profile
+    <div ng-show="model.success" class="alert alert-success">
+        {{model.success}}
     </div>
 
-    <div class="alert alert-danger">
-        Unable to update your profile
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
     </div>
 
     <form>

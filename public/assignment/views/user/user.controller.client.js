@@ -17,17 +17,20 @@
 
         var id = $routeParams["id"];
         var index = -1;
-        console.log(id);
-        for(var i in users) {
-            if(users[i]._id === id) {
-                vm.user = users[i];
-                index = i;
+        function init() {
+            for(var i in users) {
+                if(users[i]._id === id) {
+                    vm.user = users[i];
+                    index = i;
+                }
             }
         }
+        init();
 
         function updateUser() {
-            users[i].firstName = vm.user.firstName;
-            users[i].lastName = vm.user.lastName;
+            users[index].firstName = vm.user.firstName;
+            users[index].lastName = vm.user.lastName;
+            vm.success = "User successfully updated";
         }
     }
 
