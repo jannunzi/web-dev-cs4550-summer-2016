@@ -22,6 +22,9 @@
                 templateUrl: "views/website/website-list.view.client.html",
                 controller: "WebsiteListController",
                 controllerAs: "model"
+            })
+            .when("/user/:userId/website/:websiteId", {
+                templateUrl: "views/website/website-edit.view.client.html"
             });
     }
 })();
