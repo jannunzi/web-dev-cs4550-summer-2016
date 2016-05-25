@@ -18,8 +18,10 @@
                 controller: "ProfileController",
                 controllerAs: "model"
             })
-            .when("/user/:uid/website", {
-                templateUrl: "views/website/website-list.view.client.html"
+            .when("/user/:userId/website", {
+                templateUrl: "views/website/website-list.view.client.html",
+                controller: "WebsiteListController",
+                controllerAs: "model"
             });
     }
 })();
