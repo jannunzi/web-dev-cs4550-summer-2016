@@ -24,7 +24,9 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId", {
-                templateUrl: "views/website/website-edit.view.client.html"
+                templateUrl: "views/website/website-edit.view.client.html",
+                controller: "EditWebsiteController",
+                controllerAs: "model"
             });
     }
 })();

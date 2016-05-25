@@ -22,13 +22,16 @@
 
 <div class="container">
 
+
+    {{model.website}}
+
     <form>
         <div class="form-group">
-            <label for="username">Website Name</label>
-            <input type="text"
-                   value="jannunzi"
+            <label for="websiteName">Website Name</label>
+            <input ng-model="model.website.name"
+                   type="text"
                    class="form-control"
-                   id="username"
+                   id="websiteName"
                    placeholder="alice"/>
         </div>
         <div class="form-group">
