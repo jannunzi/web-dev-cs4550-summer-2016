@@ -21,13 +21,13 @@
 </nav>
 
 <div ng-repeat="widget in model.widgets" ng-switch="widget.widgetType">
+    <div class="jga-widget-tool">
+        <a href="#">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
     <div ng-switch-when="HEADER" class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
         <div ng-switch="widget.size">
             <h1 ng-switch-when="1">{{widget.text}}</h1>
             <h2 ng-switch-when="2">{{widget.text}}</h2>
@@ -41,57 +41,12 @@
         <img ng-src="{{widget.url}}"
              width="{{widget.width}}"/>
     </div>
+    <div ng-switch-when="HTML" class="jga-widget" ng-bind-html="model.getTrustedHtml(widget)">
+    </div>
+    <div ng-switch-when="YOUTUBE" class="jga-widget">
+        <iframe width="{{widget.width}}" height="auto" ng-src="{{model.getTrustedUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+    </div>
     <div ng-switch-default>
         {{widget}}
     </div>
-</div>
-
-<div class="jga-widget">
-    <div class="jga-widget-tool">
-        <a href="#">
-            <span class="glyphicon glyphicon-cog"></span>
-        </a>
-        <span class="glyphicon glyphicon-align-justify"></span>
-    </div>
-    <h1>GIZMODO</h1>
-</div>
-
-<div class="jga-widget">
-    <div class="jga-widget-tool">
-        <a href="#">
-            <span class="glyphicon glyphicon-cog"></span>
-        </a>
-        <span class="glyphicon glyphicon-align-justify"></span>
-    </div>
-    <h4>US Senate</h4>
-</div>
-
-<div class="jga-widget">
-    <div class="jga-widget-tool">
-        <a href="#">
-            <span class="glyphicon glyphicon-cog"></span>
-        </a>
-        <span class="glyphicon glyphicon-align-justify"></span>
-    </div>
-    <img width="100%" src="http://www.trbimg.com/img-570bd680/turbine/la-fi-spacex-rocket-20160411"/>
-</div>
-
-<div class="jga-widget">
-    <div class="jga-widget-tool">
-        <a href="#">
-            <span class="glyphicon glyphicon-cog"></span>
-        </a>
-        <span class="glyphicon glyphicon-align-justify"></span>
-    </div>
-    <p class="first-text">Earlier this month, a <a href="http://gizmodo.com/spreading-wildfires-spawn-hell-on-earth-scenario-1774865399">devastating wildfire</a> swept through the Canadian city of Fort McMurray, prompting more than 88,000 residents to evacuate. As the out-of-control blaze <a href="http://gizmodo.com/horrific-canadian-wildfires-now-overtaking-oil-faciliti-1777300184#_ga=1.119576584.1031241721.1425068057">continues to swell in size</a>, a bigger picture is starting to emerge: major fires like this are the future, and we’d better get used to it.<br><span class=" read-more-placeholder"></span><span class="readmore-core-decorated"></span></p>
-</div>
-
-<div class="jga-widget">
-    <div class="jga-widget-tool">
-        <a href="#">
-            <span class="glyphicon glyphicon-cog"></span>
-        </a>
-        <span class="glyphicon glyphicon-align-justify"></span>
-    </div>
-    <iframe width="100%" src="https://www.youtube.com/embed/0GRDZr70Y_g" frameborder="0" allowfullscreen></iframe>
 </div>
