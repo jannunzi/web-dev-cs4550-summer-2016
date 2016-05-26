@@ -1,0 +1,93 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="../page/page-list.html" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="profile.html">
+                Widgets
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="widget-choose.html" class="navbar-link">
+                  <span class="glyphicon glyphicon-plus">
+                  </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div ng-repeat="widget in model.widgets" ng-switch="widget.widgetType">
+    <div ng-switch-when="HEADER" class="jga-widget">
+        <div class="jga-widget-tool">
+            <a href="#">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+        <div ng-switch="widget.size">
+            <h1 ng-switch-when="1">{{widget.text}}</h1>
+            <h2 ng-switch-when="2">{{widget.text}}</h2>
+            <h3 ng-switch-when="3">{{widget.text}}</h3>
+            <h4 ng-switch-when="4">{{widget.text}}</h4>
+            <h5 ng-switch-when="5">{{widget.text}}</h5>
+            <h6 ng-switch-when="6">{{widget.text}}</h6>
+        </div>
+    </div>
+    <div ng-switch-default>
+        {{widget}}
+    </div>
+</div>
+
+<div class="jga-widget">
+    <div class="jga-widget-tool">
+        <a href="#">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
+    <h1>GIZMODO</h1>
+</div>
+
+<div class="jga-widget">
+    <div class="jga-widget-tool">
+        <a href="#">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
+    <h4>US Senate</h4>
+</div>
+
+<div class="jga-widget">
+    <div class="jga-widget-tool">
+        <a href="#">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
+    <img width="100%" src="http://www.trbimg.com/img-570bd680/turbine/la-fi-spacex-rocket-20160411"/>
+</div>
+
+<div class="jga-widget">
+    <div class="jga-widget-tool">
+        <a href="#">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
+    <p class="first-text">Earlier this month, a <a href="http://gizmodo.com/spreading-wildfires-spawn-hell-on-earth-scenario-1774865399">devastating wildfire</a> swept through the Canadian city of Fort McMurray, prompting more than 88,000 residents to evacuate. As the out-of-control blaze <a href="http://gizmodo.com/horrific-canadian-wildfires-now-overtaking-oil-faciliti-1777300184#_ga=1.119576584.1031241721.1425068057">continues to swell in size</a>, a bigger picture is starting to emerge: major fires like this are the future, and we’d better get used to it.<br><span class=" read-more-placeholder"></span><span class="readmore-core-decorated"></span></p>
+</div>
+
+<div class="jga-widget">
+    <div class="jga-widget-tool">
+        <a href="#">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
+    <iframe width="100%" src="https://www.youtube.com/embed/0GRDZr70Y_g" frameborder="0" allowfullscreen></iframe>
+</div>
