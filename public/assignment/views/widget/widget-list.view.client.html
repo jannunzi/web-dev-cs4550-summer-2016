@@ -37,6 +37,10 @@
             <h6 ng-switch-when="6">{{widget.text}}</h6>
         </div>
     </div>
+    <div ng-switch-when="IMAGE" class="jga-widget">
+        <img ng-src="{{widget.url}}"
+             width="{{widget.width}}"/>
+    </div>
     <div ng-switch-default>
         {{widget}}
     </div>
