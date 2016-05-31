@@ -10,7 +10,11 @@
         var id = $routeParams["id"];
         var index = -1;
         function init() {
-            vm.user = UserService.findUserById(id);
+            UserService
+                .findUserById(id)
+                .then(function(response) {
+                    vm.user = response.data;
+                });
         }
         init();
 
