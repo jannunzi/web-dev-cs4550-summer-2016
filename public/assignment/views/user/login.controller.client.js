@@ -12,16 +12,19 @@
         function login (username, password) {
             UserService
                 .findUserByUsernameAndPassword(username, password)
-                .then(function(response) {
-                    console.log(response);
-                    var user = response.data;
-                    if(user) {
-                        var id = user._id;
-                        $location.url("/profile/" + id);
-                    } else {
+                .then(
+                    function(response) {
+                        console.log(response);
+                        var user = response.data;
+                        if(user) {
+                            var id = user._id;
+                            $location.url("/profile/" + id);
+                        }
+                    },
+                    function (error) {
                         vm.error = "User not found";
                     }
-                });
+                );
         }
     }
 })();

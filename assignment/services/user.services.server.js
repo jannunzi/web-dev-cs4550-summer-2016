@@ -9,12 +9,41 @@ module.exports = function(app) {
 
     app.get("/api/user", getUsers);
     app.get("/api/user/:userId", findUserById);
+    app.put("/api/user/:userId", updateUser);
+    app.delete("/api/user/:userId", deleteUser);
+
+    function deleteUser(req, res) {
+        var id = req.params.userId;
+        for(var i in users) {
+            if(users[i]._id === id) {
+                users.splice(i, 1);
+                res.send(200);
+                return;
+            }
+        }
+        res.status(404).send("Unable to remove user with ID: " + id);
+    }
+
+    function updateUser(req, res) {
+        var id = req.params.userId;
+        var newUser = req.body;
+        for(var i in users) {
+            if(users[i]._id === id) {
+                users[i].firstName = newUser.firstName;
+                users[i].lastName = newUser.lastName;
+                res.send(200);
+                return;
+            }
+        }
+        res.status(400).send("User with ID: "+ id +" not found");
+    }
 
     function findUserById(req, res) {
         var userId = req.params.userId;
         for(var i in users) {
             if(userId === users[i]._id) {
                 res.send(users[i]);
+                return;
             }
         }
         res.send({});
@@ -25,7 +54,7 @@ module.exports = function(app) {
         var password = req.query["password"];
         if(username && password) {
             findUserByCredentials(username, password, res);
-        } if(username) {
+        } else if(username) {
             findUserByUsername(username, res);
         } else {
             res.send(users);
@@ -35,14 +64,16 @@ module.exports = function(app) {
         for(var u in users) {
             if(users[u].username === username && users[u].password === password) {
                 res.send(users[u]);
+                return;
             }
         }
-        res.send({});
+        res.send(403);
     }
     function findUserByUsername(username, res) {
         for(var u in users) {
             if(users[u].username === username) {
                 res.send(users[u]);
+                return;
             }
         }
         res.send({});
