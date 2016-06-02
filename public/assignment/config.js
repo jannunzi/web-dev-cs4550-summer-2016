@@ -45,9 +45,14 @@
                 controller: "WidgetListController",
                 controllerAs: "model"
             })
-            .when("/user/:uid/website/:wid/page/:pid/widget/new", {
-                templateUrl: "views/widget/widget-chooser.view.client.html"
+            .when("/user/:uid/website/:wid/page/:pid/widget/:widgetId", {
+                templateUrl: "views/widget/widget-edit.view.client.html",
+                controller: "WidgetEditController",
+                controllerAs: "model"
             })
+            // .when("/user/:uid/website/:wid/page/:pid/widget/", {
+            //     templateUrl: "views/widget/widget-chooser.view.client.html"
+            // })
             .otherwise({
                 redirectTo: "/login"
             });

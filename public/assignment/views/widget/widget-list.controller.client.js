@@ -32,5 +32,8 @@
             var html = $sce.trustAsHtml(widget.text);
             return html;
         }
+
+        $(".widget-container")
+            .sortable({axis: "y"});
     }
 })();
