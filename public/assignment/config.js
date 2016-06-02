@@ -11,8 +11,15 @@
                 controller: "LoginController",
                 controllerAs: "model"
             })
+            .when("/flickr", {
+                templateUrl: "views/widget/widget-flickr-search.view.client.html",
+                controller: "FlickrImageSearchController",
+                controllerAs: "model"
+            })
             .when("/register", {
-                templateUrl: "views/user/register.view.client.html"
+                templateUrl: "views/user/register.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "model"
             })
             .when("/profile/:id", {
                 templateUrl: "views/user/profile.view.client.html",

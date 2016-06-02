@@ -18,7 +18,14 @@
             var url = "/api/user/"+id;
             return $http.put(url, newUser);
         }
-        function createUser(user) {}
+        function createUser(username, password) {
+            var url = "/api/user";
+            var user = {
+                username: username,
+                password: password
+            };
+            return $http.post(url, user);
+        }
         function deleteUser(id) {
             var url = "/api/user/"+id;
             return $http.delete(url);
