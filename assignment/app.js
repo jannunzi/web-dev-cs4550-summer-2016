@@ -1,7 +1,9 @@
 module.exports = function(app) {
 
-    var userService = require("./services/user.services.server.js")(app);
-    var widgetService = require("./services/widget.service.server.js")(app);
+    var models = require("./models/models.js")();
+
+    var userService = require("./services/user.services.server.js")(app, models);
+    var widgetService = require("./services/widget.service.server.js")(app, models);
 
     var users = [
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },

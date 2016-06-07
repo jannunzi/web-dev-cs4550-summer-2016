@@ -1,4 +1,6 @@
-module.exports = function(app) {
+module.exports = function(app, models) {
+
+    var userModel = models.userModel;
 
     var users = [
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -16,16 +18,26 @@ module.exports = function(app) {
     function createUser(req, res) {
         var newUser = req.body;
 
-        for(var i in users) {
-            if(users[i].username === newUser.username) {
-                res.status(400).send("Username " + newUser.username + " is already in use");
-                return;
-            }
-        }
-
-        newUser._id = (new Date()).getTime() + "";
-        users.push(newUser);
-        res.json(newUser);
+        userModel
+            .createUser(newUser)
+            .then(
+                function(user) {
+                    res.json(user);
+                },
+                function(error) {
+                    res.status(400).send("Username " + newUser.username + " is already in use");
+                }
+            );
+        // for(var i in users) {
+        //     if(users[i].username === newUser.username) {
+        //         res.status(400).send("Username " + newUser.username + " is already in use");
+        //         return;
+        //     }
+        // }
+        //
+        // newUser._id = (new Date()).getTime() + "";
+        // users.push(newUser);
+        // res.json(newUser);
     }
     
     function deleteUser(req, res) {
@@ -56,13 +68,23 @@ module.exports = function(app) {
 
     function findUserById(req, res) {
         var userId = req.params.userId;
-        for(var i in users) {
-            if(userId === users[i]._id) {
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserById(userId)
+            .then(
+                function(user){
+                    res.send(user);
+                },
+                function(error){
+                    res.status(400).send(error);
+                }
+            );
+        // for(var i in users) {
+        //     if(userId === users[i]._id) {
+        //         res.send(users[i]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
     }
 
     function getUsers(req, res) {
