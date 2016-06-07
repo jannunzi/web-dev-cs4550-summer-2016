@@ -27,19 +27,27 @@ module.exports = function() {
         return User.findById(userId);
     }
     
-    function findUserByCredentials() {
-        
+    function findUserByCredentials(username, password) {
+        return User.findOne({username: username, password: password});
     }
     
     function findUserByUsername() {
         
     }
     
-    function updateUser() {
-        
+    function updateUser(id, newUser) {
+        return User.update(
+            {_id: id},
+            {$set :
+                {
+                    firstName: newUser.firstName,
+                    lastName: newUser.lastName
+                }
+            }
+        );
     }
     
-    function deleteUser() {
-        
+    function deleteUser(userId) {
+        return User.remove({_id: userId});
     }
 };
