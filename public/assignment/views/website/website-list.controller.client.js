@@ -7,8 +7,17 @@
         var vm = this;
 
         function init() {
-            var userId = $routeParams.userId;
-            vm.websites = WebsiteService.findWebsitesForUser(userId);
+            vm.userId = $routeParams.userId;
+            WebsiteService
+                .findWebsitesForUser(vm.userId)
+                .then(
+                    function(response) {
+                        vm.websites = response.data;
+                    },
+                    function(error) {
+                        vm.error = error;
+                    }
+                )
         }
         init();
     }

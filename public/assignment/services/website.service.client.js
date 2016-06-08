@@ -11,13 +11,18 @@
         { "_id": "789", "name": "Chess",       "developerId": "234" }
     ];
 
-    function WebsiteService() {
+    function WebsiteService($http) {
 
         var api = {
+            createWebsite: createWebsite,
             findWebsitesForUser: findWebsitesForUser,
             findWebsiteById: findWebsiteById
         };
         return api;
+
+        function createWebsite(userId, website) {
+            return $http.post("/api/user/"+userId+"/website", website);
+        }
 
         function findWebsiteById(websiteId) {
             for(var i in websites) {
@@ -29,13 +34,7 @@
         }
 
         function findWebsitesForUser(userId) {
-            var result = [];
-            for(var i in websites) {
-                if(websites[i].developerId === userId) {
-                    result.push(websites[i]);
-                }
-            }
-            return result;
+            return $http.get("/api/user/"+userId+"/website");
         }
     }
 })();

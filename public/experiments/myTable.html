@@ -1,0 +1,16 @@
+<h3>{{title}}</h3>
+
+<table class="table" border="{{border}}">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Todo</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="todo in data">
+            <td>{{todo.title}}</td>
+            <td>{{todo.task}}</td>
+        </tr>
+    </tbody>
+</table>

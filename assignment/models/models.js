@@ -4,7 +4,7 @@ module.exports = function() {
     mongoose.connect('mongodb://localhost/cs4550summer1');
 
     var userModel = require("./user/user.model.server.js")();
-    var websiteModel;
+    var websiteModel = require("./website/website.model.server")();
     var pageModel;
     var widgetModel;
 

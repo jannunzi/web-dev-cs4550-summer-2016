@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="../page/page-list.html" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="profile.html">
+                HTML Widget
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="#/user/:uid/website/:wid/page/:pid/widget/new" class="navbar-link">
+                  <span class="glyphicon glyphicon-plus">
+                  </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="input-group">
+    <input type="text" class="form-control" aria-label="...">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="...">
+      </span>
+</div>
+
+<div text-angular ng-model="model.html"
+     ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],['ul','ol'], ['justifyLeft','justifyCenter','justifyRight','justifyFull'],['indent','outdent'],['html']]"></div>
+
+<div>
+{{model.html}}
+</div>
+
+<div ng-bind-html="model.html"></div>

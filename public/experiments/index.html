@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ExperimentsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assignment/css/jquery-ui.css" rel="stylesheet">
+    <script src="../assignment/js/jquery.js"></script>
+    <script src="../assignment/js/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="myDirectives.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="ExperimentsController as model">
+        <h1>Experiments</h1>
+        <h2>Hello World Directive</h2>
+
+        <hello-world></hello-world>
+
+        <list></list>
+
+        {{model.todos}}
+
+        <my-table title="'Your Table'" border="5" data="model.todos"></my-table>
+    </div>
+</body>
+</html>
