@@ -5,6 +5,7 @@ module.exports = function(app) {
     var userService = require("./services/user.services.server.js")(app, models);
     var websiteService = require("./services/website.service.server")(app, models);
     var widgetService = require("./services/widget.service.server.js")(app, models);
+    var todoService = require("./services/todo.service.server")(app);
 
     var users = [
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },

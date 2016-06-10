@@ -22,7 +22,10 @@
 
         {{model.todos}}
 
-        <my-table title="'Your Table'" border="5" data="model.todos"></my-table>
+        <my-table title="'Your Table'"
+                  sorted="model.sorted(start, end)"
+                  border="5"
+                  data="model.todos"></my-table>
     </div>
 </body>
 </html>
