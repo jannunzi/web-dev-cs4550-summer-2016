@@ -7,6 +7,7 @@
 
         var api = {
             createUser: createUser,
+            login: login,
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
             findUserById: findUserById,
             updateUser: updateUser,
@@ -17,6 +18,14 @@
         function updateUser(id, newUser) {
             var url = "/api/user/"+id;
             return $http.put(url, newUser);
+        }
+        function login(username, password) {
+            var url = "/api/login";
+            var user = {
+                username: username,
+                password: password
+            };
+            return $http.post(url, user);
         }
         function createUser(username, password) {
             var url = "/api/user";

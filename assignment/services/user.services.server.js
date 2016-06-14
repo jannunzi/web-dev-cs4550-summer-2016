@@ -1,3 +1,6 @@
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 module.exports = function(app, models) {
 
     var userModel = models.userModel;
@@ -10,10 +13,54 @@ module.exports = function(app, models) {
     ];
 
     app.post("/api/user", createUser);
+    app.post("/api/login", passport.authenticate('wam'), login);
     app.get("/api/user", getUsers);
     app.get("/api/user/:userId", findUserById);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
+
+    passport.use('wam', new LocalStrategy(localStrategy));
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
+    function serializeUser(user, done) {
+        done(null, user);
+    }
+
+    function deserializeUser(user, done) {
+        userModel
+            .findUserById(user._id)
+            .then(
+                function(user){
+                    done(null, user);
+                },
+                function(err){
+                    done(err, null);
+                }
+            );
+    }
+
+    function localStrategy(username, password, done) {
+        userModel
+            .findUserByCredentials(username, password)
+            .then(
+                function(user) {
+                    if(user.username === username && user.password === password) {
+                        return done(null, user);
+                    } else {
+                        return done(null, false);
+                    }
+                },
+                function(err) {
+                    if (err) { return done(err); }
+                }
+            );
+    }
+
+    function login(req, res) {
+        var user = req.user;
+        res.json(user);
+    }
 
     function createUser(req, res) {
         var newUser = req.body;
@@ -113,14 +160,14 @@ module.exports = function(app, models) {
         var username = req.query["username"];
         var password = req.query["password"];
         if(username && password) {
-            findUserByCredentials(username, password, res);
+            findUserByCredentials(username, password, req, res);
         } else if(username) {
-            findUserByUsername(username, res);
+            findUserByUsername(username, req, res);
         } else {
             res.send(users);
         }
     }
-    function findUserByCredentials(username, password, res) {
+    function findUserByCredentials(username, password, req, res) {
         userModel
             .findUserByCredentials(username, password)
             .then(
@@ -139,7 +186,7 @@ module.exports = function(app, models) {
         // }
         // res.send(403);
     }
-    function findUserByUsername(username, res) {
+    function findUserByUsername(username, req, res) {
         for(var u in users) {
             if(users[u].username === username) {
                 res.send(users[u]);
