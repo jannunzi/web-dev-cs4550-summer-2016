@@ -6,6 +6,13 @@ module.exports = function() {
         password: String,
         firstName: String,
         lastName: String,
+        facebook: {
+            id: String,
+            displayName: String
+        },
+        google: {
+            id: String
+        },
         email: String,
         dateCreate: {type: Date, default: Date.now},
         dateUpdated: Date

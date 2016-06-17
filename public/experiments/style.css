@@ -1,0 +1,3 @@
+form.ng-submitted input.ng-invalid {
+    background-color: red;
+}

@@ -1,8 +1,13 @@
 (function(){
     angular
         .module("ExperimentsApp", ["myDirectives"])
+        .controller("ValidationController", ValidationController)
         .controller("ExperimentsController", ExperimentsController);
 
+    function ValidationController() {
+        
+    }
+    
     function ExperimentsController($http) {
         var vm = this;
         vm.sorted = sorted;

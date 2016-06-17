@@ -5,6 +5,7 @@
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assignment/css/jquery-ui.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <script src="../assignment/js/jquery.js"></script>
     <script src="../assignment/js/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
@@ -12,9 +13,28 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <div class="container" ng-controller="ExperimentsController as model">
+    <div class="container">
         <h1>Experiments</h1>
-        <h2>Hello World Directive</h2>
+
+        <div ng-controller="ValidationController as model">
+            <h2>Validation</h2>
+
+            <form name="myForm" novalidate>
+                <input name="username" ng-model="username" class="form-control"/>
+                <input name="age" type="number" min="0" max="200" ng-model="age" class="form-control"/>
+                <input name="email" type="email" ng-model="email" class="form-control"/>
+                <span ng-show="myForm.$submitted && email.$invalid">
+                    bad email
+                </span>
+                <button type="submit">Submit</button>
+            </form>
+
+            {{myForm}}
+
+        </div>
+
+        <div ng-controller="ExperimentsController as model">
+            <h2>Hello World Directive</h2>
 
         <hello-world></hello-world>
 
@@ -26,6 +46,9 @@
                   sorted="model.sorted(start, end)"
                   border="5"
                   data="model.todos"></my-table>
+
+        </div>
+
     </div>
 </body>
 </html>

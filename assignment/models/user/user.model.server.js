@@ -5,6 +5,7 @@ module.exports = function() {
     var User = mongoose.model("User", UserSchema);
 
     var api = {
+        findFacebookUser: findFacebookUser,
         createUser: createUser,
         findUserByCredentials: findUserByCredentials,
         findUserByUsername: findUserByUsername,
@@ -13,6 +14,10 @@ module.exports = function() {
         deleteUser: deleteUser
     };
     return api;
+
+    function findFacebookUser(id) {
+        return User.findOne({'facebook.id': id});
+    }
     
     function createUser(user) {
         return User.create(user);
@@ -31,8 +36,8 @@ module.exports = function() {
         return User.findOne({username: username, password: password});
     }
     
-    function findUserByUsername() {
-        
+    function findUserByUsername(username) {
+        return User.findOne({username: username});
     }
     
     function updateUser(id, newUser) {
