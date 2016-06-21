@@ -1,0 +1,22 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .wam-script .panel {
+        margin-bottom: 0px;
+    }
+</style>
+<div class="container">
+
+    <h2>
+        Script
+        <a href=""
+    </h2>
+
+    <div class="wam-script">
+    <%  for(var s in script) {
+            var template = "statements/" + script[s].type + ".statement.ejs";
+    %>      <%- include(template) %>
+            <%- include statements/arrow.down.ejs %>
+    <%    }
+    %>
+    </div>
+</div>

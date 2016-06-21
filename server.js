@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 var passport = require('passport');
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -18,5 +20,9 @@ app.use(express.static(__dirname + '/public'));
 
 var assignment = require('./assignment/app.js');
 assignment(app);
+
+require('./lectures/app.js')(app);
+require('./experiments/hello.js')(app);
+require('./wam/app')(app);
 
 app.listen(3000);

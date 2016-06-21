@@ -1,0 +1,57 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+<style>
+    .panel {
+        margin-bottom: 0px;
+    }
+</style>
+
+<div class="container-fluid">
+
+    <h2>
+        New Script
+    </h2>
+
+    <form action="/experiments/scripts/new-script"
+          method="post">
+        <select name="type"
+                class="form-control"
+                value="number">
+            <option>number</option>
+            <option>string</option>
+            <option>date</option>
+        </select>
+        <select name="operation"
+                class="form-control"
+                value="plus">
+            <option>plus</option>
+            <option>minus</option>
+            <option>times</option>
+            <option>division</option>
+        </select>
+        <select name="inputs"
+                class="form-control"
+                value="var 1">
+            <option>var 1</option>
+            <option>var 2</option>
+            <option>var 3</option>
+            <option>var 4</option>
+        </select>
+        <select name="inputs"
+                class="form-control"
+                value="var 2">
+            <option>var 1</option>
+            <option>var 2</option>
+            <option>var 3</option>
+            <option>var 4</option>
+        </select>
+        <input name="name"
+               class="form-control"
+               placeholder="name"/>
+        <button class="btn btn-primary btn-block"
+                type="submit">
+            Add
+        </button>
+    </form>
+
+</div>

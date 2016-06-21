@@ -1,0 +1,35 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assignment/css/style.css" rel="stylesheet"/>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Scripts
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="/wam/script/new" class="navbar-link">
+                  <span class="glyphicon glyphicon-plus">
+                  </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <ul class="list-group">
+        <%  for(var s in scripts) {
+        %>      <li class="list-group-item">
+                    <a href="#"><%= scripts[s].name %></a>
+                    <a href="/wam/script/<%= scripts[s]._id %>" class="pull-right">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                    <a href="#" class="pull-right">
+                        <span class="glyphicon glyphicon-play"></span>
+                    </a>
+                </li>
+        <%  }
+         %>
+    </ul>
+</div>

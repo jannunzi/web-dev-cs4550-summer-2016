@@ -1,0 +1,50 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assignment/css/style.css" rel="stylesheet"/>
+
+<form method="post" action="/wam/script/<%= script._id %>">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="/wam/script" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="#">
+                Edit Script
+            </a>
+            <p class="navbar-text pull-right">
+                <button class="btn btn-default" type="submit">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
+                </button>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+        <div class="form-group">
+            <label for="scriptName">Script Name</label>
+            <input name="name"
+                   value="<%= script.name %>"
+                   type="text"
+                   class="form-control"
+                   id="scriptName"
+                   placeholder="Script Name"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Script Description</label>
+            <textarea rows="5"
+                      name="description"
+                      id="description"
+                      class="form-control"><%= script.description %></textarea>
+        </div>
+
+    <a class="btn btn-danger btn-block"
+       href="#">Delete</a>
+</div>
+
+</form>

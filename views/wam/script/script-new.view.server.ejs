@@ -1,0 +1,47 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assignment/css/style.css" rel="stylesheet"/>
+
+<form method="post" action="/wam/script">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="/wam/script" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="#">
+                New Script
+            </a>
+            <p class="navbar-text pull-right">
+                <button type="submit" class="btn btn-default">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
+                </button>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+        <div class="form-group">
+            <label for="scriptName">Script Name</label>
+            <input name="name"
+                   type="text"
+                   class="form-control"
+                   id="scriptName"
+                   placeholder="Script Name"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Script Description</label>
+            <textarea name="description"
+                      rows="5"
+                      id="description"
+                      class="form-control">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+        </div>
+
+</div>
+</form>

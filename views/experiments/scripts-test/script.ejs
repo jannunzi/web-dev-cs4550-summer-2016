@@ -1,0 +1,26 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+<style>
+    .panel {
+        margin-bottom: 0px;
+    }
+</style>
+
+<div class="container-fluid">
+
+    <h2>
+        Script
+        <a href="/experiments/scripts/new-script" class="pull-right">Add</a>
+    </h2>
+
+    <%  for(var s=0; s<statements.length; s++) {
+            var statementObj = statements[s];
+            var type = statementObj.type;
+            var statementPath = 'statements/'+type+'.statement.ejs';
+    %>  <%- include(statementPath) -%>
+        <% include arrows/arrow-down-center.ejs %>
+    <%  }
+    %>
+
+
+</div>
