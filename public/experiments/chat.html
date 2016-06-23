@@ -1,0 +1,40 @@
+<html ng-app>
+<head>
+    <script src="//cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+
+    <script>
+        var sock = new SockJS('http://127.0.0.1:9999/chat');
+        function ChatCtrl($scope) {
+            $scope.messages = [];
+            $scope.sendMessage = function() {
+                sock.send($scope.messageText);
+                $scope.messageText = "";
+            };
+
+            sock.onmessage = function(e) {
+                $scope.messages.push(e.data);
+                $scope.$apply();
+            };
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div ng-controller="ChatCtrl">
+    <ul>
+        <li ng-repeat="message in messages">{{message}}</li>
+    </ul>
+
+    <form ng-submit="sendMessage()">
+        <input ng-model="messageText"
+               type="text"
+               placeholder="Type your message here" />
+        <input type="submit" value="Send" />
+    </form>
+</div>
+
+</body>
+</html>

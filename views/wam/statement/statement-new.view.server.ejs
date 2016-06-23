@@ -1,0 +1,117 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assignment/css/style.css" rel="stylesheet"/>
+
+<form method="post" action="/wam/script/<%= scriptId %>/statement">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text pull-left">
+                    <a href="/wam/script/<%= scriptId %>/statement" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                    </a>
+                </p>
+                <a class="navbar-brand" href="#">
+                    New Statement
+                </a>
+                <p class="navbar-text pull-right">
+                    <button type="submit" class="btn btn-default">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        Select Statement Type
+        <select name="type" class="form-control">
+            <option value="NUMBER">Numeric - this creates an arithmetic operation</option>
+            <option value="STRING">String</option>
+            <option value="DATE">Date</option>
+        </select>
+
+        Output
+        <select name="output" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        Input
+        <select name="input" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        Operation
+        <select name="operation" class="form-control">
+            <option>substring</option>
+            <option>length</option>
+            <option>concatenate</option>
+        </select>
+        Param 1
+        <select name="parameters" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        Param 2
+        <select name="parameters" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        Param 3
+        <select name="parameters" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+                <span class="wam-equals">=</span>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>+</option>
+                    <option>-</option>
+                    <option>x</option>
+                    <option>/</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+            </div>
+        </div>
+
+        <!--<div class="form-group">-->
+            <!--<label for="scriptName">Script Name</label>-->
+            <!--<input name="name"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="scriptName"-->
+                   <!--placeholder="Script Name"/>-->
+        <!--</div>-->
+
+    </div>
+</form>

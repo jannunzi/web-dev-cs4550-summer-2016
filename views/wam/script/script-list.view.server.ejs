@@ -21,7 +21,7 @@
     <ul class="list-group">
         <%  for(var s in scripts) {
         %>      <li class="list-group-item">
-                    <a href="#"><%= scripts[s].name %></a>
+                    <a href="/wam/script/<%= scripts[s]._id %>/statement"><%= scripts[s].name %></a>
                     <a href="/wam/script/<%= scripts[s]._id %>" class="pull-right">
                         <span class="glyphicon glyphicon-cog"></span>
                     </a>

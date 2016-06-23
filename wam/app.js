@@ -1,6 +1,7 @@
 module.exports = function(app) {
     
     var models = require('./models/models.server')();
-    
-    var controllers = require('./controllers/script.controller.server')(app, models);
+
+    require('./controllers/script.controller.server')(app, models);
+    require('./controllers/statement.controller.server')(app, models);
 };

@@ -45,3 +45,9 @@ p.navbar-text.pull-left {
     width: 100%;
     height: 100%;
 }
+
+.wam-equals {
+    position: absolute;
+    top: 4px;
+    right: 0px;
+}

@@ -2,11 +2,23 @@ module.exports = function(app, models) {
 
     var scriptModel = models.scriptModel;
 
-    app.get('/wam/script/new', newScriptController);
+    app.get ('/wam/script/new', newScriptController);
     app.post('/wam/script', createScriptController);
     app.post('/wam/script/:scriptId', updateScriptController);
-    app.get('/wam/script/:scriptId', editScriptController);
-    app.get('/wam/script', scriptListController);
+    app.get ('/wam/script/:scriptId', editScriptController);
+    app.get ('/wam/script', scriptListController);
+    app.get ('/wam/script/:scriptId/delete', deleteScriptController);
+
+    function deleteScriptController(req, res) {
+        var scriptId = req.params.scriptId;
+        scriptModel
+            .deleteScript(scriptId)
+            .then(
+                function() {
+                    res.redirect('/wam/script');
+                }
+            );
+    }
 
     function updateScriptController(req, res) {
         var scriptId = req.params.scriptId;

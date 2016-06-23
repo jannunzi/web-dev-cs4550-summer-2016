@@ -1,0 +1,66 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assignment/css/style.css" rel="stylesheet"/>
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+
+<script>
+    $(function() {
+        var start = -1;
+        var end = -1;
+        $("#wam-statement-list")
+                .sortable({
+                    axis: 'y',
+                    start: function(event, ui) {
+                        start = ui.item.index();
+                    },
+                    stop: function(event, ui) {
+                        end = ui.item.index();
+                        $.ajax({
+                            type: 'put',
+                            url: '/wam/script/<%= scriptId %>/statement/order?start='+start+'&end='+end,
+                            success: function(response) {
+
+                            }
+                        });
+                    }
+                });
+    });
+</script>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="/wam/script" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                </a>
+            </p>
+            <a class="navbar-brand" href="#">
+                Statements
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="/wam/script/<%= scriptId %>/statement/new" class="navbar-link">
+                  <span class="glyphicon glyphicon-plus">
+                  </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <ul id="wam-statement-list" class="list-group">
+        <% for(var s in statements) {%>
+            <li class="list-group-item">
+                <a href="/wam/script/statement"><%= statements[s].type %></a>
+                <a href="/wam/script/<%= scriptId %>/statement/<%= statements[s]._id%>" class="pull-right">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <a href="#" class="pull-right">
+                    <span class="glyphicon glyphicon-play"></span>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</div>

@@ -1,0 +1,79 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assignment/css/style.css" rel="stylesheet"/>
+
+<form method="post" action="/wam/script/<%= scriptId %>/statement/<%= statementId %>">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text pull-left">
+                    <a href="/wam/script/<%= scriptId %>/statement" class="navbar-link">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                    </a>
+                </p>
+                <a class="navbar-brand" href="#">
+                    Edit Statement
+                </a>
+                <p class="navbar-text pull-right">
+                    <button type="submit" class="btn btn-default">
+                  <span class="glyphicon glyphicon-ok">
+                  </span>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        Select Statement Type
+        <select name="type" class="form-control">
+            <option value="NUMBER" <%=statement.type==='NUMBER'? 'selected':''%>>Numeric - this creates an arithmetic operation</option>
+            <option value="STRING" <%=statement.type==='STRING'? 'selected':''%>>String</option>
+            <option value="DATE"   <%=statement.type==='DATE'? 'selected':''%>>Date</option>
+        </select>
+
+        Output
+        <select name="output" class="form-control">
+            <option <%=statement.output==='A'? 'selected':''%>>A</option>
+            <option <%=statement.output==='B'? 'selected':''%>>B</option>
+            <option <%=statement.output==='C'? 'selected':''%>>C</option>
+        </select>
+        Input
+        <select name="input" class="form-control">
+            <option <%=statement.input==='A'? 'selected':''%>>A</option>
+            <option <%=statement.input==='B'? 'selected':''%>>B</option>
+            <option <%=statement.input==='C'? 'selected':''%>>C</option>
+        </select>
+        Operation
+        <select name="operation" class="form-control">
+            <option>substring</option>
+            <option>length</option>
+            <option>concatenate</option>
+        </select>
+        Param 1
+        <select name="parameters" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        Param 2
+        <select name="parameters" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        Param 3
+        <select name="parameters" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+
+        <a href="/wam/script/<%= scriptId %>/statement/<%= statementId %>/delete" class="btn btn-danger btn-block">
+            Delete
+        </a>
+    </div>
+
+</form>
